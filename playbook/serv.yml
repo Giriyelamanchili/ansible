@@ -1,0 +1,9 @@
+---
+ - hosts: all
+   tasks:
+    - name: install httpd packages
+       yum: name=httpd state=insalled
+
+    - name: start httpd service
+      service: name=httpd state=started
+

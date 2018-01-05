@@ -1,0 +1,14 @@
+---
+ - hosts: all
+   tasks:
+    - name: installing httpd Package
+      yum: pkg=httpd state=installed
+      when: ansible_os_family == "RedHat"
+      ignore_error: true
+      when: ansible_os_family == "Debian"
+    
+    - name: service start on both apache2 and httpd
+      service: pkg=apache2 state=started
+      when: ansible_os_family == "Debian"
+      service: pkg:httpd state:instaled
+      when: ansible_os_family == "RedHat"

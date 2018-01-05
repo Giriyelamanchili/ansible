@@ -1,0 +1,12 @@
+---
+ - hosts: localserver devserver
+   tasks:
+    - name: crerating the directory in clients
+      file: path=/tmp/giri state=directory
+    - name: creating file in giri directory 
+      file: path=/tmp/giri/raja state=touch
+    - copy:
+           content: | 
+                     hi hello
+                     gdaftn
+           dest: /tmp/giri/raja
